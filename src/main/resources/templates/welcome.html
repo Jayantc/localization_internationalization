@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script></head>
+<body>
+<h1 th:text="#{welcome.message}"></h1>
+<span th:text="#{language.change}"></span>
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{language.english}"></option>
+    <option value="de" th:text="#{language.german}"></option>
+    <option value="fr" th:text="#{language.french}"></option>
+    <option value="ja" th:text="#{language.japanese}"></option>
+    <option value="mr" th:text="#{language.marathi}"></option>
+    <option value="pa" th:text="#{language.punjabi}"></option>
+    <option value="ta" th:text="#{language.tamil}"></option>
+    <option value="hi" th:text="#{language.hindi}"></option>
+</select>
+
+<h1 th:text="#{report.headline}"></h1>
+<text th:text="#{report.text}"></text>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != '') {
+                window.location.replace('?lang=' + selectedOption);
+            }
+        });
+    });
+</script>
+</html>
